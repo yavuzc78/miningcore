@@ -137,6 +137,12 @@ namespace Miningcore.Crypto.Hashing.Equihash
                     }
                 }
             }
+                      finally
+            {
+                sem.Value.Release();
+            }
+        }
+    }
 public unsafe class EquihashSolver_192_7 : EquihashSolver
     {
         public EquihashSolver_192_7(string personalization)
