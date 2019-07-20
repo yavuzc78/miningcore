@@ -270,6 +270,16 @@ extern "C" MODULE_API bool equihash_verify_96_5_export(const char* header, int h
 
     return verifyEH_96_5(header, vecSolution, personalization);
 }
+extern "C" MODULE_API bool equihash_verify_192_7_export(const char* header, int header_length, const char* solution, int solution_length, const char *personalization)
+{
+    if (header_length != 140) {
+        return false;
+    }
+
+    std::vector<unsigned char> vecSolution(solution, solution + solution_length);
+
+    return verifyEH_192_7(header, vecSolution, personalization);
+}
 
 extern "C" MODULE_API void sha3_256_export(const char* input, char* output, uint32_t input_len)
 {
